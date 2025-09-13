@@ -28,11 +28,11 @@ class Debounce {
 
     /**
      * The state after the bouncing has been removed.
-     * Public so it can be read from the main program.
+     * Made public so it can be read from the main program.
      */
     int outputState;
 
-    private:
+  private:
     /**
      * Called every sampleTimemS to read the state of the input pin and determine if any output change has occurred.
      */

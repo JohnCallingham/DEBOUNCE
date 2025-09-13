@@ -15,6 +15,6 @@ When the input pin is sampled and the input is high when the output is low, the 
 
 If any sample of the input pin sees a transition before the high timer has reduced to zero, then the high timer is restarted by writing the value of highSamples to highTimer. In this way the output can only be set high if the input has been high for the number of samples indicated by highSamples. When the high timer expires a check is made to ensure that the input state is still high before setting the output high.
 
-The waveform below shows the same input transitions but the values of highSamples and lowSamples are both set to 1. In this way there is no debouncing.
+The waveform below shows the same input transitions but the values of highSamples and lowSamples are both set to 1. In this way there is effectively no debouncing.
 
 ![no debouncing](assets/No%20debounce.png)
