@@ -8,7 +8,7 @@ Debounce::Debounce(uint8_t inputPin, uint16_t sampleTimemS, uint16_t lowSamples,
 }
 
 void Debounce::loop() {
-  counter++;
+  counter++; // Used to calculate how many calls to loop() are required before sample() is called.
 
   // Implement a non blocking delay for sampleTimemS.
   if (millis() < nextUpdate) return;
@@ -21,16 +21,13 @@ void Debounce::loop() {
 void Debounce::sample() {
 
   // Serial.printf("\n%d in sample(), counter = %d", millis(), counter);
-
   counter = 0;
 
-  /**
-   * Take a sample of the state of inputPin and then run the debounce process.
-   */
+   // Take a sample of the state of inputPin.
+  inputState = digitalRead(inputPin);
 
-  this->inputState = digitalRead(this->inputPin);
-
-  this->outputState = process(this->inputState);
+  // Run the debounce process with this sample.
+  outputState = process(inputState);
 }
 
 int Debounce::process(int inputState) {
@@ -41,7 +38,9 @@ int Debounce::process(int inputState) {
    */
   if (highTimer > 0) {
     highTimer--;
-    if ((highTimer == 0) && (inputState == 1)) {outputState = 1;}
+    if ((highTimer == 0) && (inputState == 1)) {
+      outputState = 1;
+    }
   }
 
   /**
@@ -51,24 +50,22 @@ int Debounce::process(int inputState) {
    */
   if (lowTimer > 0) {
     lowTimer--;
-    if ((lowTimer == 0) && (inputState == 0)) {outputState = 0;}
+    if ((lowTimer == 0) && (inputState == 0)) {
+      outputState = 0;
+    }
   }
 
   /**
-   * If the high timer is not running,
-   *  and the output state is low,
-   *  and the input state goes high,
-   *  start the high timer.
+   * If the high timer is not running, and the output state is low,
+   *  and the input state goes high, start the high timer.
    */
   if ((highTimer == 0) && (outputState == 0) && (inputState == 1)) {
     highTimer = highSamples;
   }
 
   /**
-   * If the low timer is not running,
-   *  and the output state is high,
-   *  and the input state goes low,
-   *  start the low timer.
+   * If the low timer is not running, and the output state is high,
+   *  and the input state goes low, start the low timer.
    */
   if ((lowTimer == 0) && (outputState == 1) && (inputState == 0)) {
     lowTimer = lowSamples;
