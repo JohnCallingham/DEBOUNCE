@@ -12,13 +12,22 @@
  */
 class Debounce {
   public:
-    /***
+    /**
      * inputPin is the pin which is to be debounced.
      * sampleTimemS is the number of mS between each sample of inputPin.
      * lowSamples is the number of samples that inputPin needs to be permanently low before a low is output.
      * highSamples is the number of samples that inputPin needs to be permanently high before a high is output.
      */
     Debounce(uint8_t inputPin, uint16_t sampleTimemS, uint16_t lowSamples, uint16_t highSamples);
+
+    /**
+     * An empty constructor and associated set... methods.
+     */
+    Debounce() {};
+    void setInputPin(uint8_t inputPin) { this->inputPin = inputPin; }
+    void setSampleTimemS(uint16_t sampleTimemS) { this->sampleTimemS = sampleTimemS; }
+    void setLowSamples(uint16_t lowSamples) { this->lowSamples = lowSamples; }
+    void setHighSamples(uint16_t highSamples) { this->highSamples = highSamples; }
 
     /**
      * Called repeatedly from the main program loop.
@@ -49,9 +58,9 @@ class Debounce {
     unsigned long nextUpdate = 0; // Used to ensure that sample() is called every sampleTimemS;
 
     uint8_t inputPin; // The pin which is to be debounced.
-    uint16_t sampleTimemS; // The number of mS between each sample of inputPin.
-    uint16_t lowSamples; // The number of samples that inputPin needs to be permanently low before a low is output.
-    uint16_t highSamples; // The number of samples that inputPin needs to be permanently high before a high is output.
+    uint16_t sampleTimemS = 1; // The number of mS between each sample of inputPin.
+    uint16_t lowSamples = 1; // The number of samples that inputPin needs to be permanently low before a low is output.
+    uint16_t highSamples = 1; // The number of samples that inputPin needs to be permanently high before a high is output.
 
     unsigned long counter = 0;  // Counts the number of times that process() is called before sample() is called.
 
