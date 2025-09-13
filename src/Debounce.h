@@ -21,7 +21,7 @@ class Debounce {
     Debounce(uint8_t inputPin, uint16_t sampleTimemS, uint16_t lowSamples, uint16_t highSamples);
 
     /**
-     * An empty constructor and associated set... methods.
+     * A parameterless constructor and associated set... methods.
      */
     Debounce() {};
     void setInputPin(uint8_t inputPin) { this->inputPin = inputPin; }
