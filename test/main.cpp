@@ -37,17 +37,17 @@ void outputPattern1Task (void *Parameter) {
     digitalWrite(PATTERN_1_PIN, LOW); // Output is low for 1,000 mS.
     vTaskDelay(1000 / portTICK_PERIOD_MS);
 
-    digitalWrite(PATTERN_1_PIN, HIGH); // Output is high for 20 mS.
-    vTaskDelay(20 / portTICK_PERIOD_MS);
+    digitalWrite(PATTERN_1_PIN, HIGH); // Output is high for 25 mS.
+    vTaskDelay(24 / portTICK_PERIOD_MS);
 
-    digitalWrite(PATTERN_1_PIN, LOW); // Output is low for 20 mS.
-    vTaskDelay(20 / portTICK_PERIOD_MS);
+    digitalWrite(PATTERN_1_PIN, LOW); // Output is low for 25 mS.
+    vTaskDelay(24 / portTICK_PERIOD_MS);
 
-    digitalWrite(PATTERN_1_PIN, HIGH); // Output is high for 20 mS.
-    vTaskDelay(20 / portTICK_PERIOD_MS);
+    digitalWrite(PATTERN_1_PIN, HIGH); // Output is high for 25 mS.
+    vTaskDelay(24 / portTICK_PERIOD_MS);
 
-    digitalWrite(PATTERN_1_PIN, LOW); // Output is low for 20 mS.
-    vTaskDelay(20 / portTICK_PERIOD_MS);
+    digitalWrite(PATTERN_1_PIN, LOW); // Output is low for 25 mS.
+    vTaskDelay(24 / portTICK_PERIOD_MS);
 
     digitalWrite(PATTERN_1_PIN, HIGH); // Output is high for 500 mS.
     vTaskDelay(500 / portTICK_PERIOD_MS);
