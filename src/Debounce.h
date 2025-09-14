@@ -59,8 +59,8 @@ class Debounce {
 
     uint8_t inputPin; // The pin which is to be debounced.
     uint16_t sampleTimemS = 1; // The number of mS between each sample of inputPin.
-    uint16_t lowSamples = 1; // The number of samples that inputPin needs to be permanently low before a low is output.
-    uint16_t highSamples = 1; // The number of samples that inputPin needs to be permanently high before a high is output.
+    uint16_t lowSamples = 100; // The number of samples that inputPin needs to be permanently low before a low is output.
+    uint16_t highSamples = 100; // The number of samples that inputPin needs to be permanently high before a high is output.
 
     unsigned long counter = 0;  // Counts the number of times that process() is called before sample() is called.
 
