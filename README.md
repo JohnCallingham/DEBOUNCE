@@ -1,9 +1,12 @@
+# DEBOUNCE
+An Arduino library to debounce an input pin. It has been developed on an Arduino Nano ESP32.
+
 ## Outline
-The state of the input pin (high or low) is sampled at a regular interval.
+The state of the input pin (high or low) is sampled at a regular interval (the default is every 1 mS).
 
-If the input state transitions from low to high then the input must be consistenly high for a number of samples before the output is set high. The number of samples required is stored in highSamples.
+If the input state transitions from low to high then the input must be consistenly high for a number of samples (the default is 100) before the output is set high. The number of samples required is stored in highSamples.
 
-If the input state transitions from high to low then the input must be consistenly low for a number of samples before the output is set low. The number of samples required is stored in lowSamples.
+If the input state transitions from high to low then the input must be consistenly low for a number of samples (the default is 100) before the output is set low. The number of samples required is stored in lowSamples.
 
 ## Operation
 
