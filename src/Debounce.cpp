@@ -37,8 +37,10 @@ int Debounce::process(int inputState) {
    */
   if (highTimer > 0) {
     highTimer--;
-    if ((highTimer == 0) && (inputState == 1)) {
-      outputState = 1;
+    // if ((highTimer == 0) && (inputState == 1)) {
+    //   outputState = 1;
+    if ((highTimer == 0) && (inputState == HIGH)) {
+      outputState = HIGH;
     }
   }
 
@@ -49,8 +51,10 @@ int Debounce::process(int inputState) {
    */
   if (lowTimer > 0) {
     lowTimer--;
-    if ((lowTimer == 0) && (inputState == 0)) {
-      outputState = 0;
+    // if ((lowTimer == 0) && (inputState == 0)) {
+    //   outputState = 0;
+    if ((lowTimer == 0) && (inputState == LOW)) {
+      outputState = LOW;
     }
   }
 
@@ -58,7 +62,8 @@ int Debounce::process(int inputState) {
    * If the high timer is not running, and the output state is low,
    *  and the input state goes high, start the high timer.
    */
-  if ((highTimer == 0) && (outputState == 0) && (inputState == 1)) {
+  // if ((highTimer == 0) && (outputState == 0) && (inputState == 1)) {
+  if ((highTimer == 0) && (outputState == LOW) && (inputState == HIGH)) {
     highTimer = highSamples;
   }
 
@@ -66,7 +71,8 @@ int Debounce::process(int inputState) {
    * If the low timer is not running, and the output state is high,
    *  and the input state goes low, start the low timer.
    */
-  if ((lowTimer == 0) && (outputState == 1) && (inputState == 0)) {
+  // if ((lowTimer == 0) && (outputState == 1) && (inputState == 0)) {
+  if ((lowTimer == 0) && (outputState == HIGH) && (inputState == LOW)) {
     lowTimer = lowSamples;
   }
 

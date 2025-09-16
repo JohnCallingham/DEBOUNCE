@@ -8,7 +8,6 @@
 /***
  * Class Debounce provides general debounce functionality.
  * The input is by a specified input pin.
- * ??? The output is by a callback function. ???
  */
 class Debounce {
   public:
