@@ -63,6 +63,7 @@ class Debounce {
     uint16_t highSamples = 100; // The number of samples that inputPin needs to be permanently high before a high is output.
 
     unsigned long counter = 0;  // Counts the number of times that process() is called before sample() is called.
+    // unsigned long loopsPerSample = 0; // Keeps a ruuning total of changes to the number of loops per sample.
 
     uint16_t lowTimer = 0; // Counts down from lowSamples. When at zero, the output is set low.
     uint16_t highTimer = 0; // Counts down from highSamples. When at zero, the output is set high.

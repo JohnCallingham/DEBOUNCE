@@ -19,8 +19,7 @@ void Debounce::loop() {
 }
 
 void Debounce::sample() {
-
-  // Serial.printf("\n%d in sample(), counter = %d", millis(), counter);
+  // Serial.printf("\n%d in sample(), %d loops per sample", millis(), counter);
   counter = 0;
 
    // Take a sample of the state of inputPin.
